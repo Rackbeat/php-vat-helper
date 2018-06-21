@@ -20,8 +20,6 @@ composer require rackbeat/php-vat-helper
 
 ## Usage
 
-* `Rackbeat\VAT`
-
 ```php
 Rackbeat\VAT::include($amountExclVat = 100.0, 25); // 125.0
 Rackbeat\VAT::exclude($amountInclVat = 100.0, 25); // 80.0
