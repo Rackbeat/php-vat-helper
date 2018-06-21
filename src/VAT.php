@@ -10,7 +10,7 @@ class VAT
 	 *
 	 * @return double|float|integer
 	 */
-	public static function inclVat( $numberExcluding = 0.0, $vatPercentage = 0 ) {
+	public static function include( $numberExcluding = 0.0, $vatPercentage = 0 ) {
 		return $numberExcluding * ( 1 + ( $vatPercentage / 100 ) );
 	}
 
@@ -22,7 +22,7 @@ class VAT
 	 *
 	 * @return double|float|integer
 	 */
-	public static function exclVat( $numberIncluding = 0.0, $vatPercentage = 0 ) {
+	public static function exclude( $numberIncluding = 0.0, $vatPercentage = 0 ) {
 		return $numberIncluding * static::getReverseVatAsFloat( $numberIncluding, $vatPercentage );
 	}
 
@@ -38,14 +38,40 @@ class VAT
 	 *
 	 * @return double|float|integer
 	 */
-	public static function onlyVat( $numberIncluding = 0.0, $vatPercentage = 0 ) {
+	public static function amount( $numberIncluding = 0.0, $vatPercentage = 0 ) {
 		return $numberIncluding * static::getVatAsFloat( $numberIncluding, $vatPercentage );
 	}
 
+	/**
+	 * Returns the vat-percentage from a amount including vat and a amount excluding vat.
+	 *
+	 * Example: $numberIncluding = 100, $numberExcluding = 80, result = 25
+	 *
+	 * @param float $numberIncluding
+	 * @param float $numberExcluding
+	 *
+	 * @return double|float|integer
+	 */
+	public static function percentage( $numberIncluding = 0.0, $numberExcluding = 0.0 ) {
+		return $numberIncluding / $numberExcluding - 1;
+	}
+
+	/**
+	 * @param float $numberIncluding
+	 * @param       $vatPercentage
+	 *
+	 * @return float|int
+	 */
 	protected static function getReverseVatAsFloat( $numberIncluding = 0.0, $vatPercentage ) {
 		return $numberIncluding / $numberIncluding / ( 1 + ( $vatPercentage / 100 ) );
 	}
 
+	/**
+	 * @param float $numberIncluding
+	 * @param       $vatPercentage
+	 *
+	 * @return float|int
+	 */
 	protected static function getVatAsFloat( $numberIncluding = 0.0, $vatPercentage ) {
 		return 1 - ( $numberIncluding / ( $numberIncluding * ( 1 + ( $vatPercentage / 100 ) ) ) );
 	}
