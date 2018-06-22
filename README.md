@@ -27,6 +27,10 @@ Rackbeat\VAT::amount($amountInclVat = 100.0, 25); // 25.0
 Rackbeat\VAT::percentage($amountInclVat = 100.0, $amountExclVat = 80.0); // 0.25
 ```
 
+## Plans
+
+* Better documentation
+* Per-country/region defined vat zones
 
 ## Requirements
 * PHP >= 7.1
