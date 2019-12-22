@@ -1,8 +1,12 @@
 <p align="center"> 
 <img src="logo.png" height="100" width="400" />
+</p>
 
+<p align="center"> 
 No more ugly math in your business logic.
+</p>
 
+<p align="center"> 
 <a href="https://travis-ci.org/Rackbeat/php-vat-helper"><img src="https://img.shields.io/travis/Rackbeat/php-vat-helper.svg?style=flat-square" alt="Build Status"></a>
 <a href="https://coveralls.io/github/Rackbeat/php-vat-helper"><img src="https://img.shields.io/coveralls/Rackbeat/php-vat-helper.svg?style=flat-square" alt="Coverage"></a>
 <a href="https://packagist.org/packages/rackbeat/php-vat-helper"><img src="https://img.shields.io/packagist/dt/rackbeat/php-vat-helper.svg?style=flat-square" alt="Total Downloads"></a>
