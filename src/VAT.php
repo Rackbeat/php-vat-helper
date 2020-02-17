@@ -75,6 +75,6 @@ class VAT
 	 * @return float|int
 	 */
 	protected static function getVatAsFloat( $numberIncluding = 0.0, $vatPercentage ) {
-		return 1 - ( $numberIncluding / ( $numberIncluding * ( 1 + ( $vatPercentage / 100 ) ) ) );
+		return 1 - static::getReverseVatAsFloat($vatPercentage);
 	}
 }
