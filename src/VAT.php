@@ -10,19 +10,20 @@ class VAT
 	 *
 	 * @return double|float|integer
 	 */
-	public static function include( $numberExcluding = 0.0, $vatPercentage = 0 ) {
+	public static function include( $numberExcluding, $vatPercentage ) {
 		return $numberExcluding * ( 1 + ( $vatPercentage / 100 ) );
 	}
 
 	/**
 	 * $vatPercentage must be between 0 and 100.
 	 *
-	 * @param float   $numberIncluding
+	 * @param float   
+	 
 	 * @param integer $vatPercentage
 	 *
 	 * @return double|float|integer
 	 */
-	public static function exclude( $numberIncluding = 0.0, $vatPercentage = 0 ) {
+	public static function exclude( $numberIncluding, $vatPercentage ) {
 		return $numberIncluding * static::getReverseVatAsFloat( $vatPercentage );
 	}
 
@@ -38,7 +39,7 @@ class VAT
 	 *
 	 * @return double|float|integer
 	 */
-	public static function amount( $numberIncluding = 0.0, $vatPercentage = 0 ) {
+	public static function amount( $numberIncluding, $vatPercentage ) {
 		return $numberIncluding * static::getVatAsFloat( $numberIncluding, $vatPercentage );
 	}
 
@@ -52,7 +53,7 @@ class VAT
 	 *
 	 * @return double|float|integer
 	 */
-	public static function percentage( $numberIncluding = 0.0, $numberExcluding = 0.0 ) {
+	public static function percentage( $numberIncluding, $numberExcluding ) {
 		return $numberIncluding / $numberExcluding - 1;
 	}
 
@@ -69,12 +70,11 @@ class VAT
 	}
 
 	/**
-	 * @param float $numberIncluding
 	 * @param       $vatPercentage
 	 *
 	 * @return float|int
 	 */
-	protected static function getVatAsFloat( $numberIncluding = 0.0, $vatPercentage ) {
+	protected static function getVatAsFloat( $vatPercentage ) {
 		return 1 - static::getReverseVatAsFloat($vatPercentage);
 	}
 }
