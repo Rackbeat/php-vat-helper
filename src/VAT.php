@@ -40,7 +40,7 @@ class VAT
 	 * @return double|float|integer
 	 */
 	public static function amount( $numberIncluding, $vatPercentage ) {
-		return $numberIncluding * static::getVatAsFloat( $numberIncluding, $vatPercentage );
+		return $numberIncluding * static::getVatAsFloat( $vatPercentage );
 	}
 
 	/**
